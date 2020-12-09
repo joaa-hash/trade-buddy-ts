@@ -1,12 +1,12 @@
 import React from "react";
+import { Route } from "react-router";
 import "./App.css";
+import Main from "./components/Main";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Trade Buddy App</h1>
-      </header>
+      <Route exact path="/" component={Main} />
     </div>
   );
 }
