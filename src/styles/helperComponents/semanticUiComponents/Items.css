@@ -1,0 +1,8 @@
+#items-page-main-container {
+  margin: 0 auto 3em;
+}
+
+#item-page-items-container {
+  background-image: linear-gradient(to right, white, #f3f378);
+  border-radius: 5px;
+}

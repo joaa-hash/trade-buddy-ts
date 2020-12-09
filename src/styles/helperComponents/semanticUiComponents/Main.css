@@ -1,0 +1,28 @@
+#main-page-logo {
+  margin-top: 3em;
+  height: 156px;
+  width: 277px;
+}
+
+@media only screen and (min-width: 600px) {
+  #main-page-subheader {
+    padding: 0px 0 23px;
+    font-size: 2em;
+  }
+  #main-page-divider {
+    width: 36%;
+    margin: 13px auto;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #main-page-logo {
+    margin-top: 3em;
+    height: 248px;
+    width: 484px;
+  }
+  #main-page-divider {
+    width: 40%;
+    margin: 20px auto;
+  }
+}
