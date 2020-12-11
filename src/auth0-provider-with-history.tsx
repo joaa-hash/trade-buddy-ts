@@ -18,7 +18,7 @@ export const Auth0ProviderWithHistory = ({ children }: IProps) => {
       clientId={keys.clientId}
       redirectUri="http://localhost:3000/dashboard"
       onRedirectCallback={onRedirectCallback}
-      audience="http://localhost:8080/api/authorize"
+      audience={keys.audience}
     >
       {children}
     </Auth0Provider>

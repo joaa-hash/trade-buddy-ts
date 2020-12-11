@@ -1,7 +1,6 @@
 {
-  "homepage": "https://michael-williamson.github.io/trade_buddy_ts/",
   "name": "client",
-  "proxy": "http://localhost:8080/",
+  "proxy": "https://trade-buddy-api.herokuapp.com/",
   "version": "0.1.0",
   "dependencies": {
     "@auth0/auth0-react": "^1.1.0",
