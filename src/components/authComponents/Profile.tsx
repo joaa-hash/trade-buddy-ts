@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 //css
-import "../../styles/dashboardComponents/Profile.css";
+import "../../styles/authComponents/Profile.css";
 
 export const Profile = () => {
   const menuContainerRef = useRef<HTMLDivElement>(null);

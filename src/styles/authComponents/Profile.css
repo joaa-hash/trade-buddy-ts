@@ -1,0 +1,17 @@
+#profile-component {
+  padding-top: 10px;
+}
+
+#profile-component-logout-button:hover,
+#profile-component-logout-button:active {
+  color: #224d72;
+}
+
+#profile-component-menu-icon {
+  cursor: pointer;
+}
+
+#profile-component-divider {
+  padding: 0;
+  margin: 25px 0;
+}
