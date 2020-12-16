@@ -6,8 +6,6 @@ import { Field, reduxForm, InjectedFormProps } from "redux-form";
 import { connect } from "react-redux";
 //form validation fn
 import * as formVal from "./validationFunctions";
-//function
-import { mq768 } from "../generalFunctions/index";
 //actions
 import { createTrade } from "../../actions/index";
 //css
@@ -53,19 +51,11 @@ class _EnterTrades extends Component<
   InjectedFormProps<MyFormProps, MyReduxProps> & MyReduxProps
 > {
   componentDidMount() {
-    if (this.props.isUpdating) {
-      const tradeObject = formVal.filterTrade(
-        this.props.trades,
-        this.props.match.params.id
-      );
-      this.props.initialize(tradeObject);
-    } else {
-      this.props.initialize({
-        number_of_shares: 100,
-        short_or_long: "Long",
-        day_or_swing: "Day Trade",
-      });
-    }
+    this.props.initialize({
+      number_of_shares: 100,
+      short_or_long: "Long",
+      day_or_swing: "Day Trade",
+    });
   }
 
   onSubmit = (formData: {}) => {
@@ -91,16 +81,6 @@ class _EnterTrades extends Component<
               style={{ color: "white" }}
             ></div>
           </div>
-          {this.props.isUpdating ? (
-            <div className="column">
-              <div
-                className="ui blue message"
-                id="enter-trades-updating-message"
-              >
-                Updating this Trade
-              </div>
-            </div>
-          ) : null}
           <form
             className="ui huge form error"
             onSubmit={this.props.handleSubmit(this.onSubmit)}
@@ -117,8 +97,6 @@ class _EnterTrades extends Component<
                   formVal.onlyAlpha,
                   formVal.maxLength5,
                 ]}
-                labelClass={`${mq768(this.props.wS.screenWidth, "huge")}`}
-                inputClass={`${mq768(this.props.wS.screenWidth, "huge")}`}
                 placeholder={`E.g 'TSLA' or 'AAPL'`}
                 normalize={(val: string) => val.toUpperCase()}
               />
@@ -128,7 +106,6 @@ class _EnterTrades extends Component<
                 type="number"
                 step="any"
                 validate={[formVal.required, formVal.number]}
-                labelClass={`${mq768(this.props.wS.screenWidth, "huge")}`}
                 parse={(val: string) => parseFloat(val)}
                 component={Input}
               />
@@ -221,7 +198,6 @@ class _EnterTrades extends Component<
                     icon={<i className="yellow dollar sign big icon"></i>}
                     component={Input}
                     validate={[formVal.required, formVal.number]}
-                    labelClass={`${mq768(this.props.wS.screenWidth, "huge")}`}
                     placeholder={`(3.14, .2333, etc.)`}
                     type="number"
                     step=".01"
@@ -233,7 +209,6 @@ class _EnterTrades extends Component<
                     icon={<i className="yellow dollar sign big icon"></i>}
                     component={Input}
                     validate={[formVal.required]}
-                    labelClass={`${mq768(this.props.wS.screenWidth, "huge")}`}
                     placeholder={`(3.14, .2333, etc.)`}
                     type="number"
                     step=".01"
@@ -248,7 +223,6 @@ class _EnterTrades extends Component<
                     icon={<i className="yellow dollar sign big icon"></i>}
                     component={Input}
                     validate={[formVal.required, formVal.number]}
-                    labelClass={`${mq768(this.props.wS.screenWidth, "huge")}`}
                     placeholder={`(3.14, .2333, etc.)`}
                     type="number"
                     step=".01"
@@ -260,7 +234,6 @@ class _EnterTrades extends Component<
                     icon={<i className="yellow dollar sign big icon"></i>}
                     component={Input}
                     validate={[formVal.required, formVal.number]}
-                    labelClass={`${mq768(this.props.wS.screenWidth, "huge")}`}
                     placeholder={`(3.14, .2333, etc.)`}
                     type="number"
                     step=".01"
@@ -343,7 +316,6 @@ class _EnterTrades extends Component<
                     label="Date :"
                     component={RenderDatePicker}
                     validate={[formVal.required]}
-                    labelClass={`${mq768(this.props.wS.screenWidth, "huge")}`}
                     parse={(val: Date | null) => (val ? new Date(val) : null)}
                   />
                 </Fragment>
@@ -354,7 +326,6 @@ class _EnterTrades extends Component<
                     label="Date(s) :"
                     component={RenderDatePickerMultiDay}
                     validate={[formVal.required]}
-                    labelClass={`${mq768(this.props.wS.screenWidth, "huge")}`}
                     parse={(val: Date | null) => (val ? new Date(val) : null)}
                     whatItSelects={`selectsStart`}
                     startDate={
@@ -389,7 +360,7 @@ class _EnterTrades extends Component<
               >
                 <div className="center aligned column">
                   <button className="ui button blue huge" type="submit">
-                    {this.props.isUpdating ? "Update" : "Submit"}
+                    Submit
                   </button>
                 </div>
               </div>
@@ -401,16 +372,9 @@ class _EnterTrades extends Component<
   }
 }
 
-const mapStateToProps = (state: {
-  form: FormData;
-  windowSize: WindowSize;
-  isUpdating: Boolean;
-  trades: Trade[];
-}): {} => {
+const mapStateToProps = (state: { form: FormData; trades: Trade[] }): {} => {
   return {
     formData: state.form,
-    wS: state.windowSize,
-    isUpdating: state.isUpdating,
     trades: state.trades,
   };
 };
