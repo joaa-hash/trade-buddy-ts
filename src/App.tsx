@@ -5,6 +5,7 @@ import "./App.css";
 // import { ProtectedRoute } from "./auth/protected-route";
 import Main from "./components/Main";
 import Dashboard from "./components/dashboardComponents/Dashboard";
+import { EnterTrades } from "./components/formComponents/EnterTrades";
 
 function App() {
   // const [isToken, setIsToken] = useState(false);
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <Route exact path="/" component={Main} />
       <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/enter-trades/:id?" component={EnterTrades} />
     </div>
   );
 }

@@ -10,6 +10,7 @@ import { Profile } from "../authComponents/Profile";
 import "../../styles/dashboardComponents/Dashboard.css";
 //types
 import { Trade } from "../Interfaces/index";
+import { Link } from "react-router-dom";
 
 interface DashboardComp {
   getUserTrades: Function;
@@ -46,7 +47,9 @@ class Dashboard extends Component<DashboardComp> {
           >
             Analysis
           </div>
-          <div className="item"></div>
+          <div className="item">
+            <Link to="/enter-trades">Add Trades</Link>
+          </div>
         </div>
         <div className="ui padded segment" id="dashboard-display">
           {this.state.toggle ? (
