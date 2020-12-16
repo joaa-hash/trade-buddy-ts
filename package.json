@@ -1,6 +1,5 @@
 {
   "name": "client",
-  "proxy": "https://trade-buddy-api.herokuapp.com/",
   "version": "0.1.0",
   "dependencies": {
     "@auth0/auth0-react": "^1.1.0",
@@ -31,8 +30,6 @@
     "typescript-plugin-css-modules": "^2.7.0"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
