@@ -13,11 +13,11 @@ export const Auth0ProviderWithHistory = ({ children }: IProps) => {
 
   return (
     <Auth0Provider
-      domain={`${process.env.AUTH0_DOMAIN}`}
-      clientId={`${process.env.AUTH0_CLIENT_ID}`}
+      domain={`${process.env.REACT_APP_AUTH0_DOMAIN}`}
+      clientId={`${process.env.REACT_APP_AUTH0_CLIENT_ID}`}
       redirectUri="https://michael-williamson.github.io/trade_buddy_ts/dashboard"
       onRedirectCallback={onRedirectCallback}
-      audience={`${process.env.AUTH0_AUDIENCE}`}
+      audience={`${process.env.REACT_APP_AUTH0_AUDIENCE}`}
     >
       {children}
     </Auth0Provider>
