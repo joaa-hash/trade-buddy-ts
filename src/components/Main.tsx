@@ -6,6 +6,7 @@ import LoginButton from "./helperComponents/LoginButton";
 import "../styles/helperComponents/semanticUiComponents/Main.css";
 
 import logo from "../media/logo.gif";
+import { Link } from "react-router-dom";
 
 class Main extends Component {
   render() {
@@ -34,6 +35,12 @@ class Main extends Component {
           >
             Or
           </div>
+          <Link
+            to="/dashboard"
+            className="ui blue huge button ten wide four wide tablet four wide computer column centered row"
+          >
+            Dashboard
+          </Link>
         </div>
         <Items />
       </div>
