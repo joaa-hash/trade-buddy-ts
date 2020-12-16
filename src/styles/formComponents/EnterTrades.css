@@ -1,0 +1,17 @@
+#submit-button-enter-trades-form {
+  padding-bottom: 15%;
+}
+
+#enter-trades-form-label {
+  cursor: pointer;
+}
+
+#enter-trades-updating-message {
+  text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+  #enter-trades-form {
+    width: 80%;
+  }
+}
