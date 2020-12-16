@@ -7,7 +7,7 @@ import Main from "./components/Main";
 import Dashboard from "./components/dashboardComponents/Dashboard";
 
 function App() {
-  const [isToken, setIsToken] = useState(false);
+  // const [isToken, setIsToken] = useState(false);
   //this sets a default auth header to axios;
   // AttachAuthHeader(setIsToken);
 
