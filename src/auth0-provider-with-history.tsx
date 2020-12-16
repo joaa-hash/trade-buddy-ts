@@ -1,7 +1,6 @@
 import React, { ReactNode } from "react";
 import { customHistory } from "./history/history";
 import { Auth0Provider } from "@auth0/auth0-react";
-import { keys } from "./keys/keys";
 
 interface IProps {
   children: ReactNode;
