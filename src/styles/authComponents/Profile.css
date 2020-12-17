@@ -16,6 +16,13 @@
   margin: 25px 0;
 }
 
+#profile-component-demo-message {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  z-index: 233333;
+}
+
 /* nav menu styling */
 
 #nav-menu {

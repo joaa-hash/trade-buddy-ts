@@ -8,6 +8,7 @@ import { customHistory } from "../../history/history";
 
 export const Profile = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showMessage, setShowMessage] = useState(true);
   const menuContainerRef = useRef<HTMLDivElement>(null);
 
   const { user, isAuthenticated, logout } = useAuth0();
@@ -28,6 +29,21 @@ export const Profile = () => {
           >
             Sign Out
           </button>
+          {showMessage && (
+            <div
+              className="ui info message"
+              id="profile-component-demo-message"
+            >
+              <i
+                className="close icon"
+                onClick={() => setShowMessage(false)}
+              ></i>
+              <div className="header">
+                This app is for Demo purposes: Please don't enter sensitive
+                information
+              </div>
+            </div>
+          )}
         </div>
         <div className="two column row">
           <div className="left floated left aligned column">
