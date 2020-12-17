@@ -5,6 +5,7 @@ import { dateFixer } from "../generalFunctions/index";
 import { Trade } from "../Interfaces/index";
 //css
 import "../../styles/dashboardComponents/DashboardTable.css";
+import { Link } from "react-router-dom";
 
 interface DashboardTableComp {
   trades: Trade[];
@@ -35,6 +36,12 @@ export class DashboardTable extends Component<DashboardTableComp> {
   render() {
     return (
       <div>
+        <Link to="/trade-table" className="" id="dashboard-table-to-main-table">
+          To Main Table
+        </Link>
+        <Link to="/trade-table" className={`ui blue button`}>
+          Go!
+        </Link>
         <table className="ui unstackable inverted large blue table">
           <thead>
             <tr>
