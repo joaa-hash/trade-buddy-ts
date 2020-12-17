@@ -6,6 +6,7 @@ import { ProtectedRoute } from "./auth/protected-route";
 import Main from "./components/Main";
 import Dashboard from "./components/dashboardComponents/Dashboard";
 import { EnterTrades } from "./components/formComponents/EnterTrades";
+import { TradeTable } from "./components/tableComponents/TradeTable";
 
 function App() {
   const [isToken, setIsToken] = useState(false);
@@ -24,6 +25,11 @@ function App() {
         exact
         path="/enter-trades"
         component={isToken ? EnterTrades : Main}
+      />
+      <ProtectedRoute
+        exact
+        path="/trade-table"
+        component={isToken ? TradeTable : Main}
       />
     </div>
   );
