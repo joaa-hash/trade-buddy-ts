@@ -1,0 +1,75 @@
+#trade-table-page {
+  overflow-x: scroll;
+  padding-top: 9%;
+}
+
+#trade-table-header {
+  color: white;
+  text-align: center;
+}
+
+#trade-table-h2 {
+  margin: 0 auto;
+  display: block;
+}
+
+#trade-table-sub-header {
+  color: white;
+  padding: 20px 0 20px;
+}
+
+#trade-table-count {
+  width: 100%;
+  padding: 0 0 21px 31%;
+  text-align: left;
+}
+
+#trade-table-count-label {
+  margin: 0;
+}
+
+#trade-table-label-dash {
+  margin: 0 5px;
+}
+
+#trade-table-table {
+  margin-left: 35%;
+}
+
+#trade-table-button-td {
+  display: flex;
+  flex-direction: column;
+}
+#trade-table-button-td a {
+  margin: 0 0 5px 0;
+}
+
+.not-applicable-span {
+  color: #2f2f2f;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 600px) {
+  #trade-table-count {
+    padding-left: 14%;
+  }
+  #trade-table-table {
+    margin-left: 10%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+}
+
+@media only screen and (min-width: 1024px) {
+  #trade-table-page {
+    overflow-x: inherit;
+    padding-top: 0%;
+  }
+  #trade-table-count {
+    padding-left: 6%;
+  }
+  #trade-table-table {
+    margin-left: inherit;
+  }
+}
