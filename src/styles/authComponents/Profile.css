@@ -15,3 +15,58 @@
   padding: 0;
   margin: 25px 0;
 }
+
+/* nav menu styling */
+
+#nav-menu {
+  display: flex;
+  flex-direction: column;
+  background: #191919;
+  height: 50vh;
+  width: 100%;
+  justify-content: space-around;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  z-index: 100000;
+  transform: translateX(-100%);
+  animation-name: slideIn;
+  animation-duration: 500ms;
+  animation-fill-mode: forwards;
+}
+
+#nav-menu:focus {
+  outline: none;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+#nav-menu a {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 480px) {
+  #nav-menu {
+    align-items: center;
+    height: 69vh;
+  }
+  #nav-menu a {
+    width: 46%;
+    padding: 10px 0;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #nav-menu a {
+    font-size: 1.45em;
+    padding: 30px 0;
+  }
+}
