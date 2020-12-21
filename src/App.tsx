@@ -8,6 +8,7 @@ import Dashboard from "./components/dashboardComponents/Dashboard";
 import { EnterTrades } from "./components/formComponents/EnterTrades";
 import { TradeTable } from "./components/tableComponents/TradeTable";
 import { Footer } from "./components/Footer";
+import { TradeTableModal } from "./components/tableComponents/TradeTableModal";
 
 function App() {
   const [isToken, setIsToken] = useState(false);
@@ -31,6 +32,11 @@ function App() {
         exact
         path="/trade-table"
         component={isToken ? TradeTable : Main}
+      />
+      <ProtectedRoute
+        exact
+        path="/trade-table-modal/:id"
+        component={isToken ? TradeTableModal : Main}
       />
       <Footer />
     </div>
