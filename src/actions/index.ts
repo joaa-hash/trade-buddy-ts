@@ -13,7 +13,10 @@ export interface CreateTradeAction {
   type: ActionTypes.createTrade;
   payload: Trade[];
 }
-
+export interface DeleteTradeAction {
+  type: ActionTypes.deleteTrade;
+  payload: Trade[];
+}
 export interface GetTradesAction {
   type: ActionTypes.getUserTrades;
   payload: Trade[];
@@ -35,6 +38,19 @@ export const createTrade = (formData: {}) => {
     });
 
     customHistory.push("/dashboard");
+  };
+};
+
+export const deleteTrade = (id: Number) => {
+  return async (dispatch: Dispatch) => {
+    const response = await axios.delete<Trade[]>(`${url}/trades/${id}`);
+
+    dispatch<DeleteTradeAction>({
+      type: ActionTypes.deleteTrade,
+      payload: response.data,
+    });
+
+    customHistory.goBack();
   };
 };
 
