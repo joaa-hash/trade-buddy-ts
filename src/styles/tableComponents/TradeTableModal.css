@@ -1,0 +1,20 @@
+#trade-table-modal-main-window {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 100%;
+}
+
+#trade-table-modal-header {
+  background: #191919;
+  color: #2185d0;
+}
+
+#trade-table-modal-content {
+  background: #191919;
+  color: #2185d0;
+}
+
+#trade-table-modal-actions {
+  background: #191919;
+}

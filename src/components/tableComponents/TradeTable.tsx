@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getUserTrades } from "../../actions/index";
+import { getUserTrades, deleteTrade } from "../../actions/index";
 import { dateFixer } from "../generalFunctions/index";
 import { MyFormProps } from "../Interfaces";
 //components
@@ -68,7 +69,14 @@ class _TradeTable extends Component<TradeTableProps> {
                 <span className="not-applicable-span">n/a</span>
               )}
             </td>
-            <td className="center aligned" id="trade-table-button-td"></td>
+            <td className="center aligned" id="trade-table-button-td">
+              <Link
+                className="mini ui red button"
+                to={`/trade-table-modal/${trade.id}`}
+              >
+                Delete
+              </Link>
+            </td>
           </tr>
         );
       }
@@ -129,4 +137,5 @@ const mapStateToProps = (state: { trades: Trade[] }) => {
 
 export const TradeTable = connect(mapStateToProps, {
   getUserTrades,
+  deleteTrade,
 })(_TradeTable);
