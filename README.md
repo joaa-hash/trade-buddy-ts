@@ -13,3 +13,4 @@ frontend:
 
 React
 Typescript
+Semantic ui
