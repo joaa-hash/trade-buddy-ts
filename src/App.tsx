@@ -25,7 +25,7 @@ function App() {
       />
       <ProtectedRoute
         exact
-        path="/enter-trades"
+        path="/enter-trades/:id?"
         component={isToken ? EnterTrades : Main}
       />
       <ProtectedRoute
