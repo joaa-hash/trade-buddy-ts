@@ -26,6 +26,16 @@ export interface CreateUserAction {
   payload: User;
 }
 
+export interface UpdateTrade {
+  type: ActionTypes.updateTrade;
+  payload: Trade[];
+}
+
+export interface IsUpdateAction {
+  type: ActionTypes.setUpdating;
+  payload: Boolean;
+}
+
 const url = "https://trade-buddy-api.herokuapp.com/api/authorize";
 
 export const createTrade = (formData: {}) => {
@@ -54,6 +64,19 @@ export const deleteTrade = (id: Number) => {
   };
 };
 
+export const updateTrade = (formData: {}) => {
+  return async (dispatch: Dispatch) => {
+    const response = await axios.put<Trade[]>(`${url}/trades`, formData);
+
+    dispatch<UpdateTrade>({
+      type: ActionTypes.updateTrade,
+      payload: response.data,
+    });
+
+    customHistory.goBack();
+  };
+};
+
 export const createUser = () => {
   return async (dispatch: Dispatch) => {
     const response = await axios.post(`${url}/user`);
@@ -73,5 +96,12 @@ export const getUserTrades = () => {
       type: ActionTypes.getUserTrades,
       payload: response.data,
     });
+  };
+};
+
+export const setUpdating = (bool: Boolean) => {
+  return {
+    type: ActionTypes.setUpdating,
+    payload: bool,
   };
 };
