@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 //form validation fn
 import * as formVal from "./validationFunctions";
 //actions
-import { createTrade } from "../../actions/index";
+import { createTrade, setUpdating, updateTrade } from "../../actions/index";
 //css
 import "../../App.css";
 import "../../styles/formComponents/EnterTrades.css";
@@ -19,6 +19,8 @@ interface MyReduxProps {
   history: {
     push: Function;
   };
+  updateTrade: Function;
+  setUpdating: Function;
   formData: {
     tradeForm: {
       values: {
@@ -51,16 +53,30 @@ class _EnterTrades extends Component<
   InjectedFormProps<MyFormProps, MyReduxProps> & MyReduxProps
 > {
   componentDidMount() {
-    this.props.initialize({
-      number_of_shares: 100,
-      short_or_long: "Long",
-      day_or_swing: "Day Trade",
-    });
+    if (this.props.isUpdating) {
+      const tradeObject = formVal.filterTrade(
+        this.props.trades,
+        this.props.match.params.id
+      );
+      this.props.initialize(tradeObject);
+    } else {
+      this.props.initialize({
+        number_of_shares: 100,
+        short_or_long: "Long",
+        day_or_swing: "Day Trade",
+      });
+    }
   }
 
   onSubmit = (formData: {}) => {
-    this.props.createTrade(formData);
-    this.props.history.push("/dashboard");
+    if (this.props.isUpdating) {
+      this.props.updateTrade(formData);
+      this.props.setUpdating(false);
+      // this.props.history.push("/trade-table");
+    } else {
+      this.props.createTrade(formData);
+      this.props.history.push("/dashboard");
+    }
   };
 
   render() {
@@ -81,6 +97,16 @@ class _EnterTrades extends Component<
               style={{ color: "white" }}
             ></div>
           </div>
+          {this.props.isUpdating ? (
+            <div className="column">
+              <div
+                className="ui blue message"
+                id="enter-trades-updating-message"
+              >
+                Updating this Trade
+              </div>
+            </div>
+          ) : null}
           <form
             className="ui huge form error"
             onSubmit={this.props.handleSubmit(this.onSubmit)}
@@ -372,26 +398,23 @@ class _EnterTrades extends Component<
   }
 }
 
-const mapStateToProps = (state: { form: FormData; trades: Trade[] }): {} => {
+const mapStateToProps = (state: {
+  form: FormData;
+  trades: Trade[];
+  isUpdating: Boolean;
+}): {} => {
   return {
     formData: state.form,
     trades: state.trades,
+    isUpdating: state.isUpdating,
   };
 };
 
 const connector = connect(mapStateToProps, {
   createTrade,
+  setUpdating,
+  updateTrade,
 });
-
-// const initialValues: {
-//   number_of_shares: Number;
-//   short_or_long: string;
-//   day_or_swing: string;
-// } = {
-//   number_of_shares: 100,
-//   short_or_long: "Long",
-//   day_or_swing: "Day Trade",
-// };
 
 export const EnterTrades = connector(
   reduxForm<MyFormProps, MyReduxProps>({
