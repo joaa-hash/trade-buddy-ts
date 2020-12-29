@@ -36,7 +36,7 @@ class _TradeTable extends Component<TradeTableProps> {
               )}
             </td>
             <td className="center aligned">
-              {dateFixer(trade.end_date) || (
+              {(trade.end_date && dateFixer(trade.end_date)) || (
                 <span className="not-applicable-span">n/a</span>
               )}
             </td>

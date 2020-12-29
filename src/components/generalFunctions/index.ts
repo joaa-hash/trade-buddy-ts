@@ -7,6 +7,7 @@ export const dateFixer = (date: String | undefined) => {
 
     return `${monthAndDay}-${splicedYear}`;
   }
+  return false;
 };
 
 export const mq768 = (width: Number, className: String) => {
