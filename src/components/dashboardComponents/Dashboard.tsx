@@ -2,19 +2,22 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 //components
 import { DashboardTable } from "./DashboardTable";
-import { getUserTrades } from "../../actions/index";
+import { getUserTrades, getAnalysis } from "../../actions/index";
 
 import { Profile } from "../authComponents/Profile";
 //function
 //css
 import "../../styles/dashboardComponents/Dashboard.css";
 //types
-import { Trade } from "../Interfaces/index";
+import { AnalysisProps, Trade } from "../Interfaces/index";
 import { Link } from "react-router-dom";
+import { DashboardAnalysis } from "./DashboardAnalysis";
 
 interface DashboardComp {
   getUserTrades: Function;
+  getAnalysis: Function;
   trades: Trade[];
+  analysis: AnalysisProps;
 }
 
 class Dashboard extends Component<DashboardComp> {
@@ -59,7 +62,7 @@ class Dashboard extends Component<DashboardComp> {
               "no trades at this time"
             )
           ) : (
-            "<DashboardAnalysis analysis={this.props.analysis} />"
+            <DashboardAnalysis analysis={this.props.analysis} />
           )}
         </div>
       </div>
@@ -67,12 +70,17 @@ class Dashboard extends Component<DashboardComp> {
   }
 }
 
-const mapStateToProps = (state: { trades: Trade[] }) => {
+const mapStateToProps = (state: {
+  trades: Trade[];
+  analysis: AnalysisProps;
+}) => {
   return {
     trades: state.trades,
+    analysis: state.analysis,
   };
 };
 
 export default connect(mapStateToProps, {
   getUserTrades,
+  getAnalysis,
 })(Dashboard);
