@@ -3,7 +3,7 @@ import { Dispatch } from "redux";
 import { ActionTypes } from "./types";
 import { customHistory } from "../history/history";
 //types
-import { Trade } from "../components/Interfaces";
+import { AnalysisProps, Trade } from "../components/Interfaces";
 
 export interface User {
   ticker: string;
@@ -24,6 +24,11 @@ export interface GetTradesAction {
 export interface CreateUserAction {
   type: ActionTypes.createUser;
   payload: User;
+}
+
+export interface GetAnalysis {
+  type: ActionTypes.getAnalysis;
+  payload: AnalysisProps;
 }
 
 export interface UpdateTrade {
@@ -94,6 +99,20 @@ export const getUserTrades = () => {
 
     dispatch<GetTradesAction>({
       type: ActionTypes.getUserTrades,
+      payload: response.data,
+    });
+  };
+};
+
+export const getAnalysis = (formData: {}) => {
+  return async (dispatch: Dispatch) => {
+    const response = await axios.post<AnalysisProps>(
+      `${url}/analysis`,
+      formData
+    );
+
+    dispatch<GetAnalysis>({
+      type: ActionTypes.getAnalysis,
       payload: response.data,
     });
   };
