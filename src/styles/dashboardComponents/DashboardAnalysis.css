@@ -1,0 +1,47 @@
+#dashboard-analysis-divider {
+  margin-top: 15px;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+#dashboard-analysis-icon-header {
+  width: 100%;
+}
+
+#dashboard-analysis-button {
+  width: 40%;
+  white-space: nowrap;
+}
+
+#dashboard-analysis-dates-column {
+  text-align: center;
+}
+
+#dashboard-analysis-dates {
+  color: goldenrod;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+#dashboard-analysis-date-span {
+  font-size: 1.5em;
+  color: #2185d0;
+  font-weight: bold;
+}
+
+#dashboard-analysis-label {
+  color: goldenrod;
+  padding: 18px 0 9px;
+  white-space: nowrap;
+}
+
+#dashboard-statistic {
+  width: 28%;
+}
+
+@media screen and (min-width: 480px) {
+  #dashboard-analysis-go-link {
+    align-self: start;
+  }
+}
