@@ -12,6 +12,7 @@ import "../../styles/dashboardComponents/Dashboard.css";
 import { AnalysisProps, Trade } from "../Interfaces/index";
 import { Link } from "react-router-dom";
 import { DashboardAnalysis } from "./DashboardAnalysis";
+import { getTotalAnalysis } from "./dashboardFunctions";
 
 interface DashboardComp {
   getUserTrades: Function;
@@ -27,6 +28,7 @@ class Dashboard extends Component<DashboardComp> {
 
   componentDidMount() {
     this.props.getUserTrades();
+    this.props.getAnalysis(getTotalAnalysis());
   }
 
   render() {
