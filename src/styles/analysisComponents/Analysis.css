@@ -1,0 +1,58 @@
+#analysis-divider {
+  margin-top: 15px;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+#analysis-icon-header {
+  width: 100%;
+  color: white;
+}
+
+#analysis-button {
+  width: 40%;
+  white-space: nowrap;
+}
+
+#analysis-button:hover,
+#analysis-button:active {
+  color: rgb(240, 236, 227);
+}
+
+#analysis-dates-column {
+  text-align: center;
+}
+
+#analysis-dates {
+  color: goldenrod;
+  font-size: 1.3em;
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+#analysis-date-span {
+  font-size: 1.5em;
+  color: #2185d0;
+  font-weight: bold;
+}
+
+#analysis-date-through {
+  padding: 15px 0;
+}
+
+#analysis-label {
+  color: goldenrod;
+  padding: 18px 0 9px;
+  white-space: nowrap;
+}
+
+#analysis-statistic {
+  width: 28%;
+}
+
+@media only screen and (min-width: 768px) {
+  #analysis-dates {
+    font-size: 1.6em;
+    padding-top: 25px;
+  }
+}

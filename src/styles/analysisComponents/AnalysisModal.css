@@ -1,0 +1,39 @@
+#analysis-modal-header {
+  background: #191919;
+  color: #2185d0;
+  height: 74px;
+}
+
+#analysis-modal-form-container {
+  background: #191919;
+}
+
+#analysis-modal-label {
+  color: #2185d0;
+  font-weight: bold;
+}
+
+#analysis-modal-actions-container {
+  background-color: #191919;
+}
+
+#analysis-modal-thru {
+  color: goldenrod;
+  text-align: center;
+}
+
+@media screen and (min-width: 480px) {
+  #analysis-modal-main-window {
+    width: 100%;
+  }
+  #analysis-modal-header {
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #analysis-modal-form-container {
+    height: 453px;
+    padding: 30px 32px;
+  }
+}
