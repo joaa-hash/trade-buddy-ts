@@ -1,5 +1,3 @@
-import { Switch } from "react-router-dom";
-
 export const getTotalAnalysis = () => {
   let endDateDate = new Date();
   let endDateYear = `${endDateDate.getFullYear()}`;
