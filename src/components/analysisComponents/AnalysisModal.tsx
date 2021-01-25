@@ -179,6 +179,6 @@ export const AnalysisModal = (props: any) => {
         </div>
       </div>
     </div>,
-    document.getElementById("deleteModal")!
+    document.getElementById("analysisModal")!
   );
 };
