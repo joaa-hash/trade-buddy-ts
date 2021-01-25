@@ -6,15 +6,16 @@ import { getAnalysis } from "../../actions/index";
 //component
 import { Profile } from "../authComponents/Profile";
 //general functions
-import { dateFixer } from "../generalFunctions/index";
+import { dateFixer, mq768 } from "../generalFunctions/index";
 //css
 import "../../styles/analysisComponents/Analysis.css";
 //types
-import { AnalysisProps } from "../Interfaces/index";
+import { AnalysisProps, WindowSize } from "../Interfaces/index";
 
 interface AnalysisComp {
   getAnalysis: Function;
   analysis: AnalysisProps;
+  wS: WindowSize;
 }
 
 class _Analysis extends Component<AnalysisComp> {
@@ -35,6 +36,11 @@ class _Analysis extends Component<AnalysisComp> {
   };
 
   render() {
+    const statisticClass = ` ui ${mq768(
+      this.props.wS.screenWidth,
+      "large"
+    )} statistics row`;
+
     const {
       numberOfTrades,
       winningTrades,
@@ -52,10 +58,24 @@ class _Analysis extends Component<AnalysisComp> {
           <div className="ui icon header" id="analysis-icon-header">
             <i className="chart bar icon"></i>
             <h1 className="ui h1">Analysis</h1>
-            <button onClick={this.getTotalAnalysis} id="analysis-button">
+            <button
+              className={`ui ${mq768(
+                this.props.wS.screenWidth,
+                "huge"
+              )} blue button`}
+              onClick={this.getTotalAnalysis}
+              id="analysis-button"
+            >
               Total
             </button>
-            <Link to="/analysis-modal" id="analysis-button">
+            <Link
+              to="/analysis-modal"
+              className={`ui ${mq768(
+                this.props.wS.screenWidth,
+                "huge"
+              )} blue button`}
+              id="analysis-button"
+            >
               Analysis Options
             </Link>
           </div>
@@ -64,7 +84,14 @@ class _Analysis extends Component<AnalysisComp> {
               <Fragment>
                 <div className="one column centered row">
                   <div className="centered column" id="analysis-dates-column">
-                    <div>Date(s)</div>
+                    <div
+                      className={`ui ${mq768(
+                        this.props.wS.screenWidth,
+                        "large"
+                      )} yellow label`}
+                    >
+                      Date(s)
+                    </div>
                     {startDate === "1900-01-01" ? (
                       <div id="analysis-dates">
                         all trades until
@@ -98,7 +125,7 @@ class _Analysis extends Component<AnalysisComp> {
                     )}
                   </div>
                 </div>{" "}
-                <div>
+                <div className={statisticClass}>
                   <div className="grey statistic">
                     <div className="value">{numberOfTrades}</div>
                     <div className="label" id="analysis-label">
@@ -109,8 +136,8 @@ class _Analysis extends Component<AnalysisComp> {
                     </div>
                   </div>
                 </div>
-                {typeOfTrade === "both" ? (
-                  <div>
+                {typeOfTrade == "both" ? (
+                  <div className={statisticClass}>
                     <div className="grey statistic" id="analysis-statistic">
                       <div className="value">{dayTrades}</div>
                       <div className="label" id="analysis-label">
@@ -131,7 +158,7 @@ class _Analysis extends Component<AnalysisComp> {
                     </div>
                   </div>
                 ) : (
-                  <div>
+                  <div className={statisticClass}>
                     <div className="green statistic" id="analysis-statistic">
                       <div className="value">
                         {typeOfTrade === "Day Trade" ? dayTrades : swingTrades}
@@ -145,7 +172,7 @@ class _Analysis extends Component<AnalysisComp> {
                     </div>
                   </div>
                 )}
-                <div>
+                <div className={statisticClass}>
                   <div className="green statistic" id="analysis-statistic">
                     <div className="value">{winningTrades}</div>
                     <div className="label" id="analysis-label">
@@ -183,9 +210,10 @@ class _Analysis extends Component<AnalysisComp> {
   }
 }
 
-const mapStateToProps = (state: { analysis: any }) => {
+const mapStateToProps = (state: { analysis: any; windowSize: WindowSize }) => {
   return {
     analysis: state.analysis,
+    wS: state.windowSize,
   };
 };
 
