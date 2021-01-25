@@ -136,7 +136,7 @@ class _Analysis extends Component<AnalysisComp> {
                     </div>
                   </div>
                 </div>
-                {typeOfTrade == "both" ? (
+                {typeOfTrade === "both" ? (
                   <div className={statisticClass}>
                     <div className="grey statistic" id="analysis-statistic">
                       <div className="value">{dayTrades}</div>
