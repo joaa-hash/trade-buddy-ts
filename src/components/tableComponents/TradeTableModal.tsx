@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { useDispatch } from "react-redux";
 import { deleteTrade } from "../../actions/index";
 //css
-import "..//../styles/tableComponents/TradeTableModal.css";
+import "../../styles/tableComponents/TradeTableModal.css";
 
 export const TradeTableModal = (props: any) => {
   const dispatch = useDispatch();

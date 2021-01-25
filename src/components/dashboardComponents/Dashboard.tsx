@@ -2,23 +2,25 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 //components
 import { DashboardTable } from "./DashboardTable";
-import { getUserTrades, getAnalysis } from "../../actions/index";
+import { createUser, getUserTrades, getAnalysis } from "../../actions/index";
 
 import { Profile } from "../authComponents/Profile";
 //function
 //css
 import "../../styles/dashboardComponents/Dashboard.css";
 //types
-import { AnalysisProps, Trade } from "../Interfaces/index";
+import { AnalysisProps, Trade, WindowSize } from "../Interfaces/index";
 import { Link } from "react-router-dom";
 import { DashboardAnalysis } from "./DashboardAnalysis";
 import { getTotalAnalysis } from "./dashboardFunctions";
+import { mq768 } from "../generalFunctions";
 
 interface DashboardComp {
   getUserTrades: Function;
   getAnalysis: Function;
   trades: Trade[];
   analysis: AnalysisProps;
+  wS: WindowSize;
 }
 
 class Dashboard extends Component<DashboardComp> {
@@ -39,7 +41,12 @@ class Dashboard extends Component<DashboardComp> {
           <i className={`settings icon`}></i>
           <h1 className="ui h1">Dashboard</h1>
         </div>
-        <div className={`ui blue three item inverted menu`}>
+        <div
+          className={`ui blue three item inverted ${mq768(
+            this.props.wS.screenWidth,
+            "massive"
+          )} menu`}
+        >
           <div
             className="item item-hover"
             onClick={() => this.setState({ toggle: true })}
@@ -75,14 +82,17 @@ class Dashboard extends Component<DashboardComp> {
 const mapStateToProps = (state: {
   trades: Trade[];
   analysis: AnalysisProps;
+  windowSize: WindowSize;
 }) => {
   return {
     trades: state.trades,
     analysis: state.analysis,
+    wS: state.windowSize,
   };
 };
 
 export default connect(mapStateToProps, {
+  createUser,
   getUserTrades,
   getAnalysis,
 })(Dashboard);
