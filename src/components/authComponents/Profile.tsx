@@ -86,6 +86,9 @@ export const Profile = () => {
             <NavLink to="/enter-trades">
               <i className="circular users blue icon"></i>Add Trades
             </NavLink>
+            <NavLink to="/analysis">
+              <i className="chart bar icon"></i>Analysis
+            </NavLink>
             <NavLink to="/trade-table">
               <i className="table blue icon"></i>Trades Table
             </NavLink>

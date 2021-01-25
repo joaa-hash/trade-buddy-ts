@@ -32,6 +32,9 @@ export class Footer extends Component {
               </Link>
             </div>
             <div id="footer-second-nav-set">
+              <Link to="/analysis">
+                <i className="chart bar icon"></i>Analysis
+              </Link>
               <Link to="/trade-table">
                 <i className="table blue icon"></i>Trades Table
               </Link>
