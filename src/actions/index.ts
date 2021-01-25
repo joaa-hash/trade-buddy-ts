@@ -3,7 +3,7 @@ import { Dispatch } from "redux";
 import { ActionTypes } from "./types";
 import { customHistory } from "../history/history";
 //types
-import { AnalysisProps, Trade } from "../components/Interfaces";
+import { AnalysisProps, Trade, WindowSize } from "../components/Interfaces";
 
 export interface User {
   ticker: string;
@@ -29,6 +29,11 @@ export interface CreateUserAction {
 export interface GetAnalysis {
   type: ActionTypes.getAnalysis;
   payload: AnalysisProps;
+}
+
+export interface GetWindowSize {
+  type: ActionTypes.getWindowSize;
+  payload: WindowSize;
 }
 
 export interface UpdateTrade {
@@ -115,6 +120,13 @@ export const getAnalysis = (formData: {}) => {
       type: ActionTypes.getAnalysis,
       payload: response.data,
     });
+  };
+};
+
+export const getWindowSize = (screenWidth: Number, screenHeight: Number) => {
+  return {
+    type: ActionTypes.getWindowSize,
+    payload: { screenWidth, screenHeight },
   };
 };
 
