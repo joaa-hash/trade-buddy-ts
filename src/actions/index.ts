@@ -57,7 +57,7 @@ export const createTrade = (formData: {}) => {
       payload: response.data,
     });
 
-    customHistory.push("/dashboard");
+    customHistory.push("/trade-table");
   };
 };
 
