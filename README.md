@@ -12,7 +12,7 @@
 
 - [General Info](#general-info)
 - [Technologies](#technologies)
-- [Link to backend API](https://github.com/michael-williamson/)
+- [Link to backend API](https://github.com/michael-williamson/trade-buddy-api)
 
 ## General Info
 
