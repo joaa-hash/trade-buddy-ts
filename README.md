@@ -4,6 +4,8 @@
 
 #### Stock Trading app for the active investor
 
+## Link to Site
+
 #### [https://trade-buddy.netlify.app/](https://trade-buddy.netlify.app/)
 
 ## Table of Contents
