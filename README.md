@@ -1,6 +1,6 @@
 # Trade Buddy
 
-<img src="https://github.com/michael-williamson/trade_buddy_ts/blob/main/demoPics/trade-buddy-frontpage.png" width="400">
+<img src="https://github.com/joaa-hash/trade_buddy_ts/blob/main/demoPics/trade-buddy-frontpage.png" width="400">
 
 #### Stock Trading app for the active investor
 
@@ -12,14 +12,14 @@
 
 - [General Info](#general-info)
 - [Technologies](#technologies)
-- [Link to backend API](https://github.com/michael-williamson/trade-buddy-api)
+- [Link to backend API](https://github.com/joaa-hash/trade-buddy-api)
 
 ## General Info
 
 Full Stack application designed for Stock Traders to input trades they've made and analyze performance. Designed with the User Experience in mind to ensure that navigation is
 seamless and that the user can profit from the efficiency. Trade Buddy integrates modern technologies in a way that the application is not only an aesthetically pleasing application but is also highly functioning.
 
-<img src="https://github.com/michael-williamson/trade_buddy_ts/blob/main/demoPics/trade-buddy-dashboard.png" width="400" height="400"> <img src="https://github.com/michael-williamson/trade_buddy_ts/blob/main/demoPics/trade-buddy-analysis.png" width="400" height="400"> <img src="https://github.com/michael-williamson/trade_buddy_ts/blob/main/demoPics/trade-buddy-table.png" width="400" height="400"> <img src="https://github.com/michael-williamson/trade_buddy_ts/blob/main/demoPics/trade-buddy-form.png" width="400" height="400">
+<img src="https://github.com/joaa-hash/trade_buddy_ts/blob/main/demoPics/trade-buddy-dashboard.png" width="400" height="400"> <img src="https://github.com/joaa-hash/trade_buddy_ts/blob/main/demoPics/trade-buddy-analysis.png" width="400" height="400"> <img src="https://github.com/joaa-hash/trade_buddy_ts/blob/main/demoPics/trade-buddy-table.png" width="400" height="400"> <img src="https://github.com/joaa-hash/trade_buddy_ts/blob/main/demoPics/trade-buddy-form.png" width="400" height="400">
 
 ## Technologies
 
